@@ -9,6 +9,12 @@ spec:
    containers:
    - name: web
      image: kk74/homework:0.0.1
+     readinessProbe:
+       httpGet:
+         path: /index.html
+         port: 80
+     livenessProbe:
+         tcpSocket: { port: 8000 }
      volumeMounts:
      - name: app
        mountPath: /app
